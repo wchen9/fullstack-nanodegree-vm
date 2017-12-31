@@ -46,6 +46,7 @@ POST = '''\
 def main():
   '''Main page of the forum.'''
   posts = "".join(POST % (date, text) for text, date in get_posts())
+  #print(posts)
   html = HTML_WRAP % posts
   return html
 
@@ -55,6 +56,8 @@ def post():
   '''New post submission.'''
   message = request.form['content']
   add_post(message)
+  #print(url_for('main'))
+  #print(redirect(url_for('main')))
   return redirect(url_for('main'))
 
 
